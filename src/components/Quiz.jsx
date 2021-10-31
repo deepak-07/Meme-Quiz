@@ -27,7 +27,6 @@ export default function Quiz({
         setQuestionNumber((prev) => prev + 1);
         setSelectedAnswer(null);
         if (questionNumber >= data.length) setStop(true);
-        console.log(questionNumber, data.length);
       } else {
         setStop(true);
       }
