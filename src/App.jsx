@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./app.css";
 import Quiz from "./components/Quiz";
+import Timer from "./components/Timer";
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
@@ -141,41 +142,44 @@ function App() {
       ],
     },
   ];
-  const pointPyramid = useMemo(() => 
-    [
-      {
-        id: 1,
-        point: "10",
-      },
-      {
-        id: 2,
-        point: "20",
-      },
-      {
-        id: 3,
-        point: "30",
-      },
-      {
-        id: 4,
-        point: "40",
-      },
-      {
-        id: 5,
-        point: "50",
-      },
-      {
-        id: 6,
-        point: "60",
-      },
-      {
-        id: 7,
-        point: "70",
-      },
-      {
-        id: 8,
-        point: "80",
-      },
-    ].reverse(), []);
+  const pointPyramid = useMemo(
+    () =>
+      [
+        {
+          id: 1,
+          point: "10",
+        },
+        {
+          id: 2,
+          point: "20",
+        },
+        {
+          id: 3,
+          point: "30",
+        },
+        {
+          id: 4,
+          point: "40",
+        },
+        {
+          id: 5,
+          point: "50",
+        },
+        {
+          id: 6,
+          point: "60",
+        },
+        {
+          id: 7,
+          point: "70",
+        },
+        {
+          id: 8,
+          point: "80",
+        },
+      ].reverse(),
+    []
+  );
 
   useEffect(() => {
     questionNumber > 1 &&
@@ -188,11 +192,13 @@ function App() {
     <div className="App">
       <div className="main">
         {stop ? (
-          <h1 className="endGame">Khatam Tata Goodbye Gaya! : {earned}</h1>
+          <h1 className="endGame">You earned : {earned} points</h1>
         ) : (
           <>
             <div className="top">
-              <div className="timer">30</div>
+              <div className="timer">
+                <Timer setStop={setStop} questionNumber={questionNumber} />
+              </div>
             </div>
             <div className="bottom">
               <Quiz
