@@ -2,146 +2,16 @@ import { useEffect, useMemo, useState } from "react";
 import "./app.css";
 import Quiz from "./components/Quiz";
 import Timer from "./components/Timer";
+import Start from "./components/Start";
+import data from "./data.js";
+import End from "./assests/End.gif";
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [stop, setStop] = useState(false);
   const [earned, setEarned] = useState("0");
+  const [startPlay, setStartPlay] = useState(false);
 
-  const data = [
-    {
-      id: 1,
-      question: "Which Actor is a Meme Lord ?",
-      answers: [
-        {
-          text: "Akshay",
-          correct: true,
-        },
-        {
-          text: "Salman",
-          correct: false,
-        },
-        {
-          text: "Paresh ",
-          correct: false,
-        },
-        {
-          text: "Pamkaj",
-          correct: false,
-        },
-      ],
-    },
-    {
-      id: 2,
-      question: " What is Shardul called ?",
-      answers: [
-        {
-          text: "Sir",
-          correct: false,
-        },
-        {
-          text: "God",
-          correct: false,
-        },
-        {
-          text: "Lord ",
-          correct: true,
-        },
-        {
-          text: "Thakur",
-          correct: false,
-        },
-      ],
-    },
-    {
-      id: 3,
-      question: "Which Actor is a Meme Lord ?",
-      answers: [
-        {
-          text: "Akshay",
-          correct: true,
-        },
-        {
-          text: "Salman",
-          correct: false,
-        },
-        {
-          text: "Paresh ",
-          correct: false,
-        },
-        {
-          text: "Pamkaj",
-          correct: false,
-        },
-      ],
-    },
-    {
-      id: 4,
-      question: "Which Actor is a Meme Lord ?",
-      answers: [
-        {
-          text: "Akshay",
-          correct: true,
-        },
-        {
-          text: "Salman",
-          correct: false,
-        },
-        {
-          text: "Paresh ",
-          correct: false,
-        },
-        {
-          text: "Pamkaj",
-          correct: false,
-        },
-      ],
-    },
-    {
-      id: 5,
-      question: "Which Actor is a Meme Lord ?",
-      answers: [
-        {
-          text: "Akshay",
-          correct: true,
-        },
-        {
-          text: "Salman",
-          correct: false,
-        },
-        {
-          text: "Paresh ",
-          correct: false,
-        },
-        {
-          text: "Pamkaj",
-          correct: false,
-        },
-      ],
-    },
-    {
-      id: 6,
-      question: "Which Actor is a Meme Lord ?",
-      answers: [
-        {
-          text: "Akshay",
-          correct: true,
-        },
-        {
-          text: "Salman",
-          correct: false,
-        },
-        {
-          text: "Paresh ",
-          correct: false,
-        },
-        {
-          text: "Pamkaj",
-          correct: false,
-        },
-      ],
-    },
-  ];
   const pointPyramid = useMemo(
     () =>
       [
@@ -190,44 +60,53 @@ function App() {
 
   return (
     <div className="App">
-      <div className="main">
-        {stop ? (
-          <h1 className="endGame">You earned : {earned} points</h1>
-        ) : (
-          <>
-            <div className="top">
-              <div className="timer">
-                <Timer setStop={setStop} questionNumber={questionNumber} />
-              </div>
-            </div>
-            <div className="bottom">
-              <Quiz
-                data={data}
-                setStop={setStop}
-                setQuestionNumber={setQuestionNumber}
-                questionNumber={questionNumber}
-              />
-            </div>
-          </>
-        )}
-      </div>
-      <div className="pyramid">
-        <ul className="pointList">
-          {pointPyramid.map((item) => (
-            <li
-              className={
-                questionNumber === item.id
-                  ? "pointListItem active"
-                  : "pointListItem"
-              }
-              key={item.id}
-            >
-              <span className="pointListItemNumber">{item.id}</span>
-              <span className="pointListItemPoints">{item.point}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {startPlay ? (
+        <>
+          <div className="main">
+            {stop ? (
+              <>
+                <img className="EndImage" src={End} />
+                <h1 className="endGame">You have earned: {earned} points</h1>
+              </>
+            ) : (
+              <>
+                <div className="top">
+                  <div className="timer">
+                    <Timer setStop={setStop} questionNumber={questionNumber} />
+                  </div>
+                </div>
+                <div className="bottom">
+                  <Quiz
+                    data={data}
+                    setStop={setStop}
+                    setQuestionNumber={setQuestionNumber}
+                    questionNumber={questionNumber}
+                  />
+                </div>
+              </>
+            )}
+          </div>
+          <div className="pyramid">
+            <ul className="pointList">
+              {pointPyramid.map((item) => (
+                <li
+                  className={
+                    questionNumber === item.id
+                      ? "pointListItem active"
+                      : "pointListItem"
+                  }
+                  key={item.id}
+                >
+                  <span className="pointListItemNumber">{item.id}.</span>
+                  <span className="pointListItemPoints">{item.point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      ) : (
+        <Start setStartPlay={setStartPlay} />
+      )}
     </div>
   );
 }
