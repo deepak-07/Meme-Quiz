@@ -39,18 +39,27 @@ export default function Quiz({
   }, [data, questionNumber]);
 
   return (
-    <div className="quiz">
-      <div className="question">{question?.question}</div>
-      <div className="answers">
-        {question?.answers.map((item) => (
-          <div
-            className={selectedAnswer === item ? className : "answer"}
-            onClick={() => handleClick(item)}
-            key={item.text}
-          >
-            {item.text}
-          </div>
-        ))}
+    <div className="quizBody">
+      {question?.img !== "" ? (
+        <div className="questionImage">
+          <img className="qusImage" src={question?.img} />
+        </div>
+      ) : (
+        <></>
+      )}
+      <div className="quiz">
+        <div className="question">{question?.question}</div>
+        <div className="answers">
+          {question?.answers.map((item) => (
+            <div
+              className={selectedAnswer === item ? className : "answer"}
+              onClick={() => handleClick(item)}
+              key={item.text}
+            >
+              {item.text}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
