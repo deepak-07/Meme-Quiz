@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function Timer({ setStop, questionNumber }) {
-  const [timer, setTimer] = useState(30);
+  const [timer, setTimer] = useState(3000);
   useEffect(() => {
     if (timer === 0) return setStop(true);
     const interval = setInterval(() => {

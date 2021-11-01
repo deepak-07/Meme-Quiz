@@ -66,7 +66,7 @@ function App() {
             {stop ? (
               <>
                 <img className="EndImage" src={End} />
-                <h1 className="endGame">You have earned: {earned} points</h1>
+                <h2 className="endGame">You have earned: {earned} points</h2>
               </>
             ) : (
               <>
@@ -74,7 +74,6 @@ function App() {
                   <div className="timer">
                     <Timer setStop={setStop} questionNumber={questionNumber} />
                   </div>
-                  
                 </div>
                 <div className="bottom">
                   <Quiz
