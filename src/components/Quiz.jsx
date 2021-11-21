@@ -22,6 +22,9 @@ export default function Quiz({
     delay(500, () =>
       setClassName(item.correct ? "answer correct" : "answer wrong")
     );
+    // className ==="answer wrong " ? (delay(2500, () =>
+    //   data[questionNumber - 1].answers.correct ? <></> :()
+    // );) : ();
     delay(3500, () => {
       if (item.correct) {
         setQuestionNumber((prev) => prev + 1);

@@ -101,7 +101,7 @@
         flex-wrap: wrap;
     }
     
-    @media (min-width: 40em) {
+    @media only screen and (min-width: 500px) {
         .main {
             width: 75%;
         }
@@ -116,7 +116,7 @@
             height: 70%;
         }
         .pointListItemNumber {
-            font-size: 18px;
+            font-size: 1px;
             font-weight: 100;
             width: 30%;
         }
@@ -138,6 +138,14 @@
             font-style: 20px;
             font-weight: 300;
             margin: 0 10px 20px 10px;
+        }
+        .endGame {
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 10px;
+            margin: auto;
         }
         .EndImage {
             width: 40%;
@@ -169,7 +177,7 @@
     }
     
     .answer.wrong {
-        animation: wrong 2s ease forwards;
+        animation: wrong 3s ease forwards;
     }
     
     @keyframes wrong {
@@ -211,7 +219,7 @@
     }
     
     .pointListItemNumber {
-        font-size: 0px;
+        font-size: 18px;
     }
     
     .pointListItemPoints {
@@ -254,7 +262,7 @@
     }
     
     .EndImage {
-        width: 55%;
+        width: 50%;
         height: 35%;
         position: relative;
         top: 0;
