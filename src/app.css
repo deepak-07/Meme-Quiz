@@ -1,0 +1,222 @@
+* {
+    font-family: 'Zen Antique', serif;
+    margin: 0;
+}
+
+.App {
+    height: 100vh;
+    display: flex;
+    background-color: #020230;
+    color: white;
+}
+
+.main {
+    width: 75%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230), url("./assests/BG\ image.jpg") center;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+}
+
+.top {
+    height: 30%;
+    position: relative;
+}
+
+.timer {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+}
+
+.bottom {
+    height: 70%;
+}
+
+.quizBody {
+    height: 100%;
+}
+
+.questionImage {
+    height: 40%;
+    position: relative;
+}
+
+.qusImage {
+    position: absolute;
+    width: 50%;
+    height: 90%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.quiz {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.question {
+    width: 80%;
+    background: linear-gradient(#100241, black);
+    border: 2px solid white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.answer {
+    width: 40%;
+    padding: 10px;
+    text-align: center;
+    background: linear-gradient(#0e0124, #22074d);
+    border: 1px solid white;
+    border-radius: 15px;
+    font-style: 20px;
+    font-weight: 300;
+    margin: 0 10px 20px 10px;
+    cursor: pointer;
+}
+
+.answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.answer:hover,
+.answer.active {
+    background: mediumblue;
+}
+
+.answer.correct {
+    animation: correct 3s ease forwards;
+}
+
+@keyframes correct {
+    0%,
+    22% {
+        background: mediumblue;
+    }
+    20% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    26%,
+    100% {
+        background: green;
+    }
+}
+
+.answer.wrong {
+    animation: wrong 3s ease forwards;
+}
+
+@keyframes wrong {
+    0%,
+    22% {
+        background: mediumblue;
+    }
+    20% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    26%,
+    100% {
+        background: crimson;
+    }
+}
+
+.pyramid {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pointList {
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+}
+
+.pointListItem {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.pointListItem.active {
+    background-color: teal;
+}
+
+.pointListItemNumber {
+    font-size: 18px;
+    font-weight: 100;
+    width: 30%;
+}
+
+.pointListItemPoints {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.start {
+    width: 400px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.startButton {
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.endGame {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.EndImage {
+    width: 40%;
+    height: 40%;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
